@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VALDRAKHAR — La Malédiction des Anciens | Action RPG Dark Fantasy</title>
 
-    <!-- Fonts -->
+    <!-- Performance: preconnect + reduced font weights (only what's used) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@600;700&family=Cormorant+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 
     <!-- Styles (loaded in cascade order: base → sections → responsive) -->
     <link rel="stylesheet" href="css/base.css">
@@ -24,7 +24,6 @@
 <body id="body">
 
 <!-- ══ CURSOR ══ -->
-<div id="cursor"><div id="cursor-ring"></div><div id="cursor-dot"></div></div>
 
 <!-- ══ DISCLAIMER MODAL ══ -->
 <div id="disclaimerModal" class="modal-backdrop hidden" role="dialog" aria-modal="true">
@@ -71,10 +70,10 @@
 <section id="hero" class="s-hero">
     <!-- 🎬 VIDÉO BG — dépose ton fichier dans aetheria/videos/hero.mp4
          (optionnel : hero.webm pour une version plus légère sur les navigateurs modernes)
-         L'image poster (hero-bg.png) sert de fallback si la vidéo ne charge pas
+         L'image poster (hero-bg.webp) sert de fallback si la vidéo ne charge pas
          ou si l'autoplay est bloqué (mobile, économie d'énergie). -->
     <video class="hero-video" autoplay muted loop playsinline
-           poster="images/hero-bg.png" preload="metadata">
+           poster="images/hero-bg.webp" preload="metadata">
         <source src="videos/hero.webm" type="video/webm">
         <source src="videos/hero.mp4"  type="video/mp4">
     </video>
@@ -82,8 +81,8 @@
 
     <div class="hero-content">
         <div class="hero-top reveal-up">
-            <p class="hero-eyebrow prx-1">— PÉRIR OU DEVENIR LÉGENDE —</p>
-            <div class="hero-logo prx-2">
+            <p class="hero-eyebrow">— PÉRIR OU DEVENIR LÉGENDE —</p>
+            <div class="hero-logo">
                 <h1><span class="logo-white">VALD</span><span class="logo-gold">RAKHAR</span></h1>
                 <div class="hero-ornament">
                     <span class="orn-line"></span>
@@ -92,8 +91,8 @@
                 </div>
                 <p class="hero-subtitle">La Malédiction des Anciens</p>
             </div>
-            <p class="hero-quote prx-1">"Le feu s'éteint, et les cendres ne portent plus que le souvenir des anciens dieux."</p>
-            <div class="hero-badges prx-3">
+            <p class="hero-quote">"Le feu s'éteint, et les cendres ne portent plus que le souvenir des anciens dieux."</p>
+            <div class="hero-badges">
                 <span>Action RPG</span>
                 <span class="badge-sep">◆</span>
                 <span>Dark Fantasy</span>
@@ -335,14 +334,14 @@
     </button>
 </div>
 
-<!-- ══ Scripts (loaded in dependency order) ══ -->
-<script src="js/data.js"></script>
-<script src="js/render.js"></script>
-<script src="js/carousel.js"></script>
-<script src="js/scroll.js"></script>
-<script src="js/ui.js"></script>
-<script src="js/parallax.js"></script>
-<script src="js/main.js"></script>
+<!-- ══ Scripts (defer = non-blocking, order preserved) ══ -->
+<script src="js/data.js" defer></script>
+<script src="js/render.js" defer></script>
+<script src="js/carousel.js" defer></script>
+<script src="js/scroll.js" defer></script>
+<script src="js/ui.js" defer></script>
+<script src="js/parallax.js" defer></script>
+<script src="js/main.js" defer></script>
 
 </body>
 </html>

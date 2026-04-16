@@ -13,7 +13,7 @@
 /* ── Image BG plein écran ── */
 .lore-bg {
     position: absolute; inset: 0; z-index: 0;
-    background-image: url('../images/lore-bg.png');
+    background-image: url('../images/lore-bg.webp');
     background-size: cover; background-position: center;
     filter: saturate(.4) brightness(.45);
     animation: loreZoom 30s ease-in-out infinite alternate;
@@ -66,7 +66,7 @@ blockquote {
     border-left: 2px solid var(--gold);
     border-right: 2px solid var(--gold);
     background: rgba(8,6,10,.55);
-    backdrop-filter: blur(6px);
+    
     max-width: 60ch;
     margin: .5rem auto;
     text-align: center;

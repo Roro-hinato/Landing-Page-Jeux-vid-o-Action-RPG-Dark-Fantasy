@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════
-   BASE — tokens · reset · cursor · navbar · modal · footer
+   BASE — tokens · reset · navbar · modal · footer
 ═══════════════════════════════════════════════ */
 
 /* ── TOKENS ── */
@@ -34,11 +34,11 @@ html { font-size: 16px; scroll-snap-type: y mandatory; scroll-behavior: smooth; 
 body {
     background: var(--bg); color: var(--text);
     font-family: var(--ff-body); font-size: 1.15rem; line-height: 1.75;
-    overflow-x: hidden; -webkit-font-smoothing: antialiased; cursor: none;
+    overflow-x: hidden; -webkit-font-smoothing: antialiased;
 }
 img { display: block; width: 100%; object-fit: cover; }
 a { text-decoration: none; color: inherit; }
-button { font-family: inherit; border: none; background: none; cursor: none; }
+button { font-family: inherit; border: none; background: none; }
 
 /* ── PARALLAX — classes ajoutées par parallax.js ── */
 .prx-1, .prx-2, .prx-3 {
@@ -85,27 +85,6 @@ button { font-family: inherit; border: none; background: none; cursor: none; }
     50%      { background-position: 100% 50%; }
 }
 
-/* ── CURSOR ── */
-* { cursor: none !important; }
-#cursor { position: fixed; top:0; left:0; pointer-events:none; z-index:9999; }
-#cursor-ring {
-    position: fixed; width:34px; height:34px;
-    border: 1.5px solid rgba(201,168,76,.65);
-    transform: translate(-50%,-50%) rotate(45deg);
-    transition: width .22s, height .22s, border-color .22s, background .22s;
-    box-shadow: 0 0 14px var(--gold-glow);
-    pointer-events: none; z-index:9999;
-}
-#cursor-dot {
-    position: fixed; width:5px; height:5px;
-    background: var(--gold);
-    transform: translate(-50%,-50%);
-    box-shadow: 0 0 10px var(--gold), 0 0 20px var(--gold-glow);
-    pointer-events: none; z-index:9999;
-}
-#cursor.hovering #cursor-ring { width:50px; height:50px; border-color:var(--gold); background:rgba(201,168,76,.07); }
-#cursor.clicking #cursor-ring { width:22px; height:22px; background:rgba(201,168,76,.2); transition-duration:.08s; }
-
 /* ── REVEAL ANIMATIONS ── */
 .reveal-fade  { opacity:0; transform: translateY(24px); transition: opacity 1s var(--eout), transform 1s var(--eout); }
 .reveal-left  { opacity:0; transform: translateX(-50px); transition: opacity 1s var(--eout), transform 1s var(--eout); }
@@ -117,6 +96,9 @@ button { font-family: inherit; border: none; background: none; cursor: none; }
 section {
     scroll-snap-align: start; scroll-snap-stop: always;
     height: 100vh; max-height: 100vh; overflow: hidden; box-sizing: border-box;
+    contain: layout style paint;              /* perf: isole le layout/paint de chaque section */
+    content-visibility: auto;                 /* perf: skip rendering des sections hors viewport */
+    contain-intrinsic-size: auto 100vh;       /* hint de taille pour content-visibility */
 }
 
 /* ── SHARED TYPOGRAPHY ── */

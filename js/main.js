@@ -1,27 +1,35 @@
 /* ═══════════════════════════════════════════════
    MAIN — entry point
-   Order: render templates → setup all interactions
+   Critical setup runs immediately; non-critical deferred via requestIdleCallback
+   to reduce Total Blocking Time.
 ═══════════════════════════════════════════════ */
 'use strict';
 
-document.addEventListener('DOMContentLoaded', () => {
-    // 1. Render data-driven sections
-    renderAll();
+const defer = (fn) => ('requestIdleCallback' in window) ? requestIdleCallback(fn) : setTimeout(fn, 1);
 
-    // 2. Setup interactions (render must happen first)
+document.addEventListener('DOMContentLoaded', () => {
+    // ── CRITICAL (affects first paint / core navigation) ──
+    renderAll();
     setupNavbar();
     setupHamburger();
     setupReveal();
-    setupGameplay();          // §2 carousel
-    setupZones();             // §5 carousel
-    setupCursor();
-    setupModal();             // disclaimer modal
-    setupInfoModals();        // footer info modals
-    setupForm();
     const scrollApi = setupSectionScroll();
-    setupSectionNav(scrollApi);   // floating ↑ ↓ ⇞ buttons
-    setupCitadelleButtons();  // §4 crossfade
-    setupLiveCounter();
-    setupMobileTouch();
-    setupParallax();          // mouse parallax
+    setupSectionNav(scrollApi);
+
+    // ── DEFERRED (non-blocking — interactions, animations, polish) ──
+    defer(() => {
+        setupGameplay();
+        setupZones();
+        setupCitadelleButtons();
+    });
+    defer(() => {
+        setupModal();
+        setupInfoModals();
+        setupForm();
+        setupLiveCounter();
+    });
+    defer(() => {
+        setupMobileTouch();
+        setupParallax();
+    });
 });

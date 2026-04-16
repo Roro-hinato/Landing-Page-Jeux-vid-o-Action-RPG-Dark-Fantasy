@@ -53,14 +53,11 @@ const renderCitadelle = () => {
 
 /* ── §2 GAMEPLAY — slides du carrousel ── */
 const renderGameplay = () => {
-    const N = GAMEPLAY.length;
     const markup = GAMEPLAY.map((g, i) => html`
         <div class="gp-slide${i === 0 ? ' gp-active' : ''}">
             <div class="gp-slide-bg" style="background-image:url('${g.img}')"></div>
             <div class="gp-slide-overlay"></div>
             <div class="gp-slide-content">
-                <div class="gp-slide-num">${String(i + 1).padStart(2, '0')} / ${String(N).padStart(2, '0')}</div>
-                <div class="gp-slide-icon">${g.ico}</div>
                 <h3 class="gp-slide-title">${g.name}</h3>
                 <p class="gp-slide-desc">${g.desc}</p>
                 <div class="gp-slide-tags">${g.tags.map(t => `<span>${t}</span>`).join('')}</div>
@@ -72,17 +69,14 @@ const renderGameplay = () => {
 
 /* ── §5 MONDE — slides ── */
 const renderZones = () => {
-    const N = ZONES.length;
     const markup = ZONES.map((z, i) => html`
         <div class="zs-slide${i === 0 ? ' zs-active' : ''}">
             <div class="zs-slide-bg" style="background-image:url('${z.img}')"></div>
             <div class="zs-slide-overlay"></div>
             <div class="zs-slide-content">
                 <div class="zs-slide-badge">${z.badge}</div>
-                <div class="zs-slide-icon">${z.ico}</div>
                 <h3 class="zs-slide-title">${z.name}</h3>
                 <p class="zs-slide-desc">${z.desc}</p>
-                <div class="zs-slide-counter">${String(i + 1).padStart(2, '0')} / ${String(N).padStart(2, '0')}</div>
             </div>
         </div>
     `).join('');

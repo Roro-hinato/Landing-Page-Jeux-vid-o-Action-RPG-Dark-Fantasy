@@ -26,7 +26,7 @@
 .cit-bg-b { opacity: 0; }
 
 /* Image initiale (remplacée au click par JS — on utilise la 1ʳᵉ image de CITADELLE dans data.js) */
-.cit-bg-a { background-image: url('../images/citadelle/entrainement.png'); }
+.cit-bg-a { background-image: url('../images/citadelle/entrainement.webp'); }
 
 @keyframes citZoom { from{transform:scale(1)} to{transform:scale(1.06)} }
 
@@ -70,7 +70,7 @@
     text-align: left;
     padding: .9rem 1.2rem;
     background: rgba(8,6,10,.55);
-    backdrop-filter: blur(8px);
+    
     border: 1px solid var(--border);
     border-left: 3px solid transparent;
     color: var(--text);

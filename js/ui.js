@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════
-   UI — navbar, hamburger, cursor, modal, form, citadelle, mobile touch
+   UI — navbar, hamburger, modal, form, citadelle, mobile touch
 ═══════════════════════════════════════════════ */
 'use strict';
 
@@ -24,38 +24,6 @@ const setupHamburger = () => {
     btn.addEventListener('click', toggle);
     cls?.addEventListener('click', toggle);
     $$('.mob-a').forEach(a => a.addEventListener('click', toggle));
-};
-
-/* ── CURSOR — disabled on touch ── */
-const setupCursor = () => {
-    if (window.matchMedia('(pointer: coarse)').matches) return;
-    const cursor = $('#cursor');
-    const ring   = $('#cursor-ring');
-    const dot    = $('#cursor-dot');
-    if (!cursor) return;
-
-    let mx = -200, my = -200, rx = -200, ry = -200;
-    const LERP = 0.13;
-
-    document.addEventListener('mousemove', e => {
-        mx = e.clientX; my = e.clientY;
-        dot.style.left = mx + 'px'; dot.style.top = my + 'px';
-    });
-
-    const animRing = () => {
-        rx += (mx - rx) * LERP; ry += (my - ry) * LERP;
-        ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
-        requestAnimationFrame(animRing);
-    };
-    animRing();
-
-    const sel = 'a,button,.char-card,.bonus-card,.cit-btn,.plat-ico-btn,.zs-arrow,.gp-arrow';
-    document.addEventListener('mouseover', e => { if (e.target.closest(sel)) cursor.classList.add('hovering'); });
-    document.addEventListener('mouseout',  e => { if (e.target.closest(sel)) cursor.classList.remove('hovering'); });
-    document.addEventListener('mousedown', () => cursor.classList.add('clicking'));
-    document.addEventListener('mouseup',   () => cursor.classList.remove('clicking'));
-    document.addEventListener('mouseleave',() => cursor.style.opacity = '0');
-    document.addEventListener('mouseenter',() => cursor.style.opacity = '1');
 };
 
 /* ── DISCLAIMER MODAL — opened by all platform/store buttons ── */
@@ -162,22 +130,23 @@ const setupInfoModals = () => {
     });
 };
 
-/* ── MOBILE TOUCH — tap = hover for hover cards ── */
+/* ── MOBILE TOUCH — tap = hover pour les cartes. Sur mobile, la carte tapée passe
+   en .touch-active ; taper ailleurs ferme toutes les cartes actives. ── */
 const setupMobileTouch = () => {
     if (!window.matchMedia('(pointer: coarse)').matches) return;
     const sel = '.char-card, .bonus-card';
-    document.querySelectorAll(sel).forEach(card => {
-        card.addEventListener('touchstart', e => {
+
+    document.addEventListener('touchstart', e => {
+        const card = e.target.closest(sel);
+        if (card) {
+            // Tap sur une carte : on toggle son état, on ferme les autres
             const wasActive = card.classList.contains('touch-active');
             const parent = card.closest('.char-showcase, .bonus-grid');
             parent?.querySelectorAll(sel).forEach(c => c.classList.remove('touch-active'));
-            if (!wasActive) {
-                card.classList.add('touch-active');
-                e.stopPropagation();
-            }
-        }, { passive: true });
-    });
-    document.addEventListener('touchstart', () => {
-        $$('.touch-active').forEach(c => c.classList.remove('touch-active'));
+            if (!wasActive) card.classList.add('touch-active');
+        } else {
+            // Tap ailleurs : on ferme toutes les cartes actives
+            $$('.touch-active').forEach(c => c.classList.remove('touch-active'));
+        }
     }, { passive: true });
 };

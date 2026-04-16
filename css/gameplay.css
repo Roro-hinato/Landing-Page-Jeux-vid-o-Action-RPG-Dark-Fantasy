@@ -27,12 +27,13 @@
 
 .gp-slide {
     position: absolute; inset: 0; opacity: 0;
-    transform: scale(1.03);
-    transition: opacity .7s ease, transform .7s ease;
+    transform: scale(1.02) translateZ(0);       /* translateZ(0) force GPU layer */
+    transition: opacity .55s ease, transform .55s ease;
     pointer-events: none;
+    will-change: opacity;
 }
 .gp-slide.gp-active {
-    opacity: 1; transform: scale(1); pointer-events: auto;
+    opacity: 1; transform: scale(1) translateZ(0); pointer-events: auto;
 }
 
 .gp-slide-bg {
@@ -57,13 +58,6 @@
     display: flex; flex-direction: column; gap: .8rem;
 }
 
-.gp-slide-num {
-    font-family: var(--ff-disp); font-weight: 900;
-    font-size: clamp(2.2rem, 4.5vh, 3.4rem);
-    color: rgba(201,168,76,.18);
-    line-height: 1;
-}
-.gp-slide-icon  { font-size: clamp(1.8rem,4vh,2.6rem); line-height: 1; }
 .gp-slide-title {
     font-family: var(--ff-disp);
     font-size: clamp(1.8rem,4.5vw,3.2rem);
@@ -89,7 +83,7 @@
     position: absolute; top: 50%; transform: translateY(-50%); z-index: 15;
     width: 52px; height: 52px;
     border: 1px solid rgba(201,168,76,.3);
-    background: rgba(8,6,10,.6); backdrop-filter: blur(8px);
+    background: rgba(8,6,10,.82);
     color: var(--gold);
     display: flex; align-items: center; justify-content: center;
     transition: background .25s, border-color .25s, transform .25s;
