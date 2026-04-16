@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VALDRAKHAR — La Malédiction des Anciens | Action RPG Dark Fantasy</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap" rel="stylesheet">
+
+    <!-- Styles (loaded in cascade order: base → sections → responsive) -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/hero.css">
+    <link rel="stylesheet" href="css/lore.css">
+    <link rel="stylesheet" href="css/gameplay.css">
+    <link rel="stylesheet" href="css/companions.css">
+    <link rel="stylesheet" href="css/citadelle.css">
+    <link rel="stylesheet" href="css/monde.css">
+    <link rel="stylesheet" href="css/signup.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body id="body">
+
+<!-- ══ CURSOR ══ -->
+<div id="cursor"><div id="cursor-ring"></div><div id="cursor-dot"></div></div>
+
+<!-- ══ DISCLAIMER MODAL ══ -->
+<div id="disclaimerModal" class="modal-backdrop hidden" role="dialog" aria-modal="true">
+    <div class="modal-box">
+        <button class="modal-close" id="modalClose" aria-label="Fermer">✕</button>
+        <div class="modal-icon">⚠</div>
+        <h3 class="modal-title">Projet Fictif</h3>
+        <p class="modal-body">
+            <strong>Valdrakhar: La Malédiction des Anciens</strong> est un projet de démonstration entièrement fictif.
+            Ce jeu <em>n'existe pas</em> et n'est disponible nulle part. Aucun achat ou téléchargement n'est possible.
+            Images : Généré par IA (Nano Banana).
+        </p>
+        <button class="btn-primary modal-btn" id="modalOk">Retour à l'aventure</button>
+    </div>
+</div>
+
+<!-- ══ NAVBAR ══ -->
+<nav id="navbar">
+    <div class="nav-logo"><span class="logo-ae">VALD</span>RAKHAR</div>
+    <div class="nav-links" id="navLinks">
+        <a href="#lore">L'Univers</a>
+        <a href="#gameplay">Gameplay</a>
+        <a href="#companions">Compagnons</a>
+        <a href="#citadelle">Citadelle</a>
+        <a href="#monde">Le Monde</a>
+        <a href="#signup" class="nav-cta">S'inscrire</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" id="mobileClose">✕</button>
+    <a href="#lore" class="mob-a">L'Univers</a>
+    <a href="#gameplay" class="mob-a">Gameplay</a>
+    <a href="#companions" class="mob-a">Compagnons</a>
+    <a href="#citadelle" class="mob-a">Citadelle</a>
+    <a href="#monde" class="mob-a">Le Monde</a>
+    <a href="#signup" class="mob-a gold">S'inscrire au Pacte</a>
+</div>
+
+<!-- ══════════════════════════════════════
+     §0  HERO
+══════════════════════════════════════ -->
+<section id="hero" class="s-hero">
+    <!-- 🎬 VIDÉO BG — dépose ton fichier dans aetheria/videos/hero.mp4
+         (optionnel : hero.webm pour une version plus légère sur les navigateurs modernes)
+         L'image poster (hero-bg.png) sert de fallback si la vidéo ne charge pas
+         ou si l'autoplay est bloqué (mobile, économie d'énergie). -->
+    <video class="hero-video" autoplay muted loop playsinline
+           poster="images/hero-bg.png" preload="metadata">
+        <source src="videos/hero.webm" type="video/webm">
+        <source src="videos/hero.mp4"  type="video/mp4">
+    </video>
+    <div class="hero-vignette"></div>
+
+    <div class="hero-content">
+        <div class="hero-top reveal-up">
+            <p class="hero-eyebrow prx-1">— PÉRIR OU DEVENIR LÉGENDE —</p>
+            <div class="hero-logo prx-2">
+                <h1><span class="logo-white">VALD</span><span class="logo-gold">RAKHAR</span></h1>
+                <div class="hero-ornament">
+                    <span class="orn-line"></span>
+                    <span class="orn-diamond">◆</span>
+                    <span class="orn-line"></span>
+                </div>
+                <p class="hero-subtitle">La Malédiction des Anciens</p>
+            </div>
+            <p class="hero-quote prx-1">"Le feu s'éteint, et les cendres ne portent plus que le souvenir des anciens dieux."</p>
+            <div class="hero-badges prx-3">
+                <span>Action RPG</span>
+                <span class="badge-sep">◆</span>
+                <span>Dark Fantasy</span>
+                <span class="badge-sep">◆</span>
+                <span>Monde Ouvert</span>
+            </div>
+        </div>
+        <div class="hero-actions reveal-fade">
+            <a href="#signup" class="btn-primary">Forger votre Légende</a>
+            <a href="#lore" class="btn-secondary">Découvrir l'Univers</a>
+        </div>
+    </div>
+
+    <div class="hero-scroll-hint">
+        <div class="scroll-orb"></div>
+        <span>Défiler</span>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     §1  LORE — Image en background + texte centré
+══════════════════════════════════════ -->
+<section id="lore" class="s-lore">
+    <div class="lore-bg prx-1"></div>
+    <div class="lore-overlay"></div>
+
+    <div class="lore-content reveal-fade">
+        <p class="eyebrow">L'Agonie d'un Monde</p>
+        <h2 class="section-title">Un Royaume <span class="t-gold">Brisé</span></h2>
+        <div class="orn-rule"></div>
+        <div class="lore-body">
+            <p>Aetheria se meurt. Le ciel n'est plus qu'une cicatrice béante d'où pleuvent les cendres des anciens rois. Depuis que le <em>Grand Murmure</em> a pétrifié le cœur des Dragons Primordiaux, la réalité elle-même se fragmente.</p>
+            <blockquote>
+                <span class="bq-mark">"</span>
+                Vous êtes l'Unique Brise-Chaîne — la seule étincelle capable de percer le voile draconique.
+                <span class="bq-mark">"</span>
+            </blockquote>
+            <p>Chaque pas dans les <strong>Plaines de Cendre</strong> est un pacte avec la mort. Traversez des forêts maudites, des cités engloutées, des pics où les dieux ont laissé leurs empreintes. Serez-vous celui qui exhume la vérité&nbsp;?</p>
+        </div>
+    </div>
+
+</section>
+
+<!-- ══════════════════════════════════════
+     §2  GAMEPLAY — carrousel générée par render.js depuis data.js (GAMEPLAY)
+══════════════════════════════════════ -->
+<section id="gameplay" class="s-gameplay">
+    <div class="gp-header reveal-fade">
+        <p class="eyebrow">Systèmes de Jeu</p>
+        <h2 class="section-title">Redéfinissez <span class="t-gold t-italic">le Destin</span></h2>
+    </div>
+
+    <div class="gp-carousel">
+        <button class="gp-arrow gp-prev" id="gpPrev" aria-label="Système précédent">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+
+        <div class="gp-slides" id="gpSlides"></div>
+
+        <button class="gp-arrow gp-next" id="gpNext" aria-label="Système suivant">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+    </div>
+
+    <div class="gp-dots" id="gpDots"></div>
+</section>
+
+<!-- ══════════════════════════════════════
+     §3  COMPAGNONS — cartes générées par render.js depuis data.js (COMPANIONS)
+══════════════════════════════════════ -->
+<section id="companions" class="s-companions">
+    <div class="companions-header reveal-fade">
+        <p class="eyebrow">Recrutement</p>
+        <h2 class="section-title">Vos <span class="t-gold">Compagnons</span></h2>
+        <p class="section-sub">Des âmes brisées. Des guerriers exilés. Des mages oubliés.<br>Trouvez-les. Gagnez leur confiance. Réécrivez leur destin.</p>
+    </div>
+    <div class="char-showcase" id="charShowcase"></div>
+</section>
+
+<!-- ══════════════════════════════════════
+     §4  CITADELLE — boutons à gauche (render.js), details à droite (ui.js gère le click)
+══════════════════════════════════════ -->
+<section id="citadelle" class="s-citadelle">
+    <div class="cit-video-wrap">
+        <div class="cit-bg-layer cit-bg-a"></div>
+        <div class="cit-bg-layer cit-bg-b"></div>
+    </div>
+    <div class="cit-overlay"></div>
+
+    <div class="cit-content">
+        <div class="cit-header reveal-fade">
+            <p class="eyebrow">Votre Quartier Général</p>
+            <h2 class="section-title">La <span class="t-gold">Citadelle</span></h2>
+            <div class="orn-rule center"></div>
+            <p class="cit-intro">De la ruine à la forteresse imprenable. Chaque bâtiment érigé repousse les ténèbres et forge votre légende.</p>
+        </div>
+
+        <div class="cit-layout">
+            <div class="cit-buttons" id="citButtons"></div>
+            <div class="cit-details" id="citDetails"></div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     §5  MONDE — slides générées par render.js depuis data.js (ZONES)
+══════════════════════════════════════ -->
+<section id="monde" class="s-monde">
+    <div class="zs-header reveal-fade">
+        <p class="eyebrow">Le Monde de Valdrakhar</p>
+        <h2 class="section-title">Un <span class="t-gold">Continent</span> à Vos Pieds</h2>
+    </div>
+
+    <div class="zs-carousel">
+        <button class="zs-arrow zs-prev" id="zonePrev" aria-label="Zone précédente">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+
+        <div class="zs-slides" id="zonesSlides"></div>
+
+        <button class="zs-arrow zs-next" id="zoneNext" aria-label="Zone suivante">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+    </div>
+
+    <div class="zs-dots" id="zonesDots"></div>
+</section>
+
+<!-- ══════════════════════════════════════
+     §6  SIGNUP — Form EN HAUT, puis bonus redesign, puis plateformes
+══════════════════════════════════════ -->
+<section id="signup" class="s-signup">
+    <div class="signup-overlay"></div>
+    <div class="signup-content reveal-fade">
+        <p class="eyebrow">Accès Anticipé</p>
+        <h2 class="section-title">Rejoindre les <span class="t-gold">Élus</span></h2>
+        <div class="orn-rule center"></div>
+        <p class="signup-desc">Gravez votre nom dans les pierres d'Aetheria. Les pionniers reçoivent des récompenses réservées à jamais aux premiers — une armure exclusive, une monture draconique, et 14 jours d'avance sur le reste du monde.</p>
+
+        <!-- FORMULAIRE en premier -->
+        <form class="signup-form" id="ctaForm">
+            <div class="signup-form-row">
+                <input type="email" id="emailInput" placeholder="votre@email.com" autocomplete="email" required>
+                <button type="submit" class="btn-primary">Sceller le Pacte</button>
+            </div>
+            <p class="signup-note">Aucun spam. Votre serment reste secret.</p>
+        </form>
+
+        <div class="signup-counter">
+            <span id="counterNum">12 847</span>
+            <span>guerriers déjà inscrits</span>
+        </div>
+        <div id="formSuccess" class="form-success hidden">✦ Votre nom est gravé dans les pierres d'Aetheria ✦</div>
+
+        <!-- BONUS : redesign horizontal -->
+        <div class="bonus-title">Récompenses du Pacte</div>
+        <div class="bonus-grid" id="bonusGrid"></div>
+
+        <div class="all-platforms">
+            <p class="plat-label">Disponible sur</p>
+            <div class="plat-icons-row" id="platIcons"></div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <p class="footer-copy">© 2025 Aetheria Studios. Tous droits réservés.</p>
+            <div class="footer-links">
+                <button class="info-trigger" data-target="modalPrivacy">Confidentialité</button>
+                <button class="info-trigger" data-target="modalTerms">Conditions</button>
+                <button class="info-trigger" data-target="modalContact">Contact</button>
+            </div>
+        </div>
+    </footer>
+</section>
+
+<!-- ══ INFO MODALS ══ -->
+<div id="modalPrivacy" class="modal-backdrop info-modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-box info-modal-box">
+        <button class="modal-close" aria-label="Fermer">✕</button>
+        <h3 class="modal-title">Confidentialité</h3>
+        <div class="info-modal-body">
+            <h4>Données collectées</h4>
+            <p>L'adresse email fournie lors de l'inscription au Pacte est conservée uniquement pour vous notifier du lancement du jeu.</p>
+            <h4>Utilisation</h4>
+            <p>Aucun partage avec des tiers. Aucune revente. Aucune publicité ciblée.</p>
+            <h4>Droit d'accès</h4>
+            <p>Vous pouvez demander la suppression de votre email à tout moment via la page Contact.</p>
+        </div>
+        <button class="btn-primary modal-btn">Compris</button>
+    </div>
+</div>
+
+<div id="modalTerms" class="modal-backdrop info-modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-box info-modal-box">
+        <button class="modal-close" aria-label="Fermer">✕</button>
+        <h3 class="modal-title">Conditions</h3>
+        <div class="info-modal-body">
+            <h4>Projet fictif</h4>
+            <p><em>Valdrakhar : La Malédiction des Anciens</em> est une démonstration non-commerciale. Aucun produit n'est vendu sur ce site.</p>
+            <h4>Images</h4>
+            <p>Toutes les illustrations ont été généré par IA (Nano Banana). Les logos des plateformes sont la propriété de leurs titulaires respectifs.</p>
+            <h4>Utilisation du code</h4>
+            <p>Ce projet est présenté à des fins de démonstration technique et artistique.</p>
+        </div>
+        <button class="btn-primary modal-btn">J'accepte</button>
+    </div>
+</div>
+
+<div id="modalContact" class="modal-backdrop info-modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-box info-modal-box">
+        <button class="modal-close" aria-label="Fermer">✕</button>
+        <h3 class="modal-title">Contact</h3>
+        <div class="info-modal-body">
+            <h4>Pour toute question</h4>
+            <p>Écrivez à&nbsp;: <a href="mailto:contact@aetheria-studios.example">contact@aetheria-studios.example</a></p>
+            <h4>Support presse</h4>
+            <p>Envoyez vos demandes à&nbsp;: <a href="mailto:press@aetheria-studios.example">press@aetheria-studios.example</a></p>
+            <h4>Réseaux</h4>
+            <p>Retrouvez-nous sur les réseaux sociaux avec le hashtag <strong>#Valdrakhar</strong>.</p>
+        </div>
+        <button class="btn-primary modal-btn">Fermer</button>
+    </div>
+</div>
+
+<!-- ══ Floating section nav — ⇞ ↑ ↓ en bas à droite ══ -->
+<div id="sectionNav" class="section-nav" aria-label="Navigation entre sections">
+    <button class="sn-btn sn-top" type="button" aria-label="Retour en haut" title="Retour en haut">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 11 12 5 6 11"/>
+            <polyline points="18 18 12 12 6 18"/>
+        </svg>
+    </button>
+    <button class="sn-btn sn-up" type="button" aria-label="Section précédente" title="Section précédente">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+    <button class="sn-btn sn-down" type="button" aria-label="Section suivante" title="Section suivante">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+</div>
+
+<!-- ══ Scripts (loaded in dependency order) ══ -->
+<script src="js/data.js"></script>
+<script src="js/render.js"></script>
+<script src="js/carousel.js"></script>
+<script src="js/scroll.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/parallax.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>

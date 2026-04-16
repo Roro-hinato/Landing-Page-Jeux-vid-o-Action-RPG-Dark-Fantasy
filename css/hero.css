@@ -1,0 +1,111 @@
+/* ═══════════════════════════════════════════════
+   §0 HERO — Cinematic fullscreen
+═══════════════════════════════════════════════ */
+
+.s-hero {
+    position: relative;
+    height: 100vh; max-height: 100vh; overflow: hidden;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    padding: var(--nav-h) 2rem 2rem;
+}
+
+/* 🎬 HERO VIDEO BG — le poster (images/hero-bg.png) sert de fallback automatique */
+.hero-video {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: saturate(.35) brightness(.4);
+    z-index: 0;
+    pointer-events: none;
+    /* L'attribut poster hérite de ces mêmes dimensions via object-fit */
+}
+
+.hero-vignette {
+    position: absolute; inset: 0;
+    z-index: 1;
+    background:
+        radial-gradient(ellipse 130% 80% at 50% 30%, transparent 20%, rgba(8,6,10,.75) 100%),
+        linear-gradient(to bottom, rgba(8,6,10,.3) 0%, transparent 30%, transparent 60%, rgba(8,6,10,.8) 100%);
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative; z-index: 2;
+    max-width: 1000px;
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center;
+    gap: clamp(2rem,5vh,6vh);
+    height: calc(100vh - var(--nav-h));
+    padding-top: calc(var(--nav-h) + 1.5vh); padding-bottom: 4vh;
+}
+
+.hero-top {
+    display: flex; flex-direction: column; align-items: center;
+    gap: clamp(.3rem,.6vh,.7rem);
+}
+
+.hero-eyebrow {
+    font-family: var(--ff-sub); font-size: .65rem; letter-spacing: .7em;
+    text-transform: uppercase; color: rgba(201,168,76,.6);
+    transition-delay: .1s;
+}
+
+.hero-logo h1 {
+    font-family: var(--ff-disp); font-weight: 900;
+    font-size: clamp(4rem, 14vw, 9.5rem);
+    line-height: 1; letter-spacing: .06em; white-space: nowrap;
+}
+.logo-white { color: var(--white); text-shadow: 0 0 60px rgba(255,255,255,.1); }
+/* .logo-gold styling moved to base.css (lingot doré effect) */
+
+.hero-ornament { display: flex; align-items: center; gap: .8rem; margin: .5rem 0; }
+.orn-line {
+    flex: 1; max-width: 120px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold));
+}
+.orn-line:last-child { background: linear-gradient(270deg, transparent, var(--gold)); }
+.orn-diamond { color: var(--gold); font-size: .7rem; }
+
+.hero-subtitle {
+    font-family: var(--ff-sub); font-size: clamp(.8rem,1.6vw,1.1rem);
+    letter-spacing: .5em; text-transform: uppercase;
+    color: rgba(245,240,232,.4);
+}
+
+.hero-quote {
+    font-style: italic; font-size: clamp(.9rem,1.3vw,1.05rem);
+    color: var(--text); max-width: 52ch;
+    line-height: 1.55; transition-delay: .3s;
+}
+
+.hero-badges {
+    display: flex; align-items: center; gap: .8rem;
+    font-family: var(--ff-sub); font-size: .6rem;
+    letter-spacing: .2em; text-transform: uppercase; color: var(--muted);
+    transition-delay: .4s;
+}
+.badge-sep { color: var(--gold); font-size: .5rem; }
+
+.hero-actions {
+    display: flex; gap: 2.5rem; flex-wrap: wrap; justify-content: center;
+    transition-delay: .5s;
+}
+.hero-actions .btn-primary,
+.hero-actions .btn-secondary { padding: 1.1rem 3rem; font-size: .72rem; }
+
+.hero-scroll-hint {
+    position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+    z-index: 2; display: flex; flex-direction: column; align-items: center; gap: .5rem;
+}
+.scroll-orb {
+    width: 8px; height: 8px; background: var(--gold); border-radius: 50%;
+    box-shadow: 0 0 12px var(--gold);
+    animation: orbFloat 2s ease-in-out infinite;
+}
+@keyframes orbFloat { 0%,100%{transform:translateY(0);opacity:.4} 50%{transform:translateY(8px);opacity:1} }
+.hero-scroll-hint span {
+    font-family: var(--ff-sub); font-size: .5rem;
+    letter-spacing: .4em; text-transform: uppercase; color: var(--muted);
+}

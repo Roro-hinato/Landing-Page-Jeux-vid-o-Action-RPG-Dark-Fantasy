@@ -1,0 +1,126 @@
+/* ═══════════════════════════════════════════════
+   §4 CITADELLE — Boutons à gauche + panneau details à droite
+                  Click sur un bouton = swap BG + contenu
+═══════════════════════════════════════════════ */
+
+.s-citadelle {
+    position: relative;
+    height: 100vh; max-height: 100vh; overflow: hidden;
+    display: flex; flex-direction: column; align-items: stretch;
+    padding: 0; background: var(--bg);
+}
+
+/* ── Background image qui crossfade au click (2 layers empilés) ── */
+.cit-video-wrap { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+
+.cit-bg-layer {
+    position: absolute; inset: 0;
+    background-size: cover; background-position: center;
+    filter: saturate(.25) brightness(.35);
+    animation: citZoom 20s ease-in-out infinite alternate;
+    will-change: opacity, transform;
+    transition: opacity .7s ease;
+}
+.cit-bg-layer.fading-out { opacity: 0; }
+.cit-bg-a { opacity: 1; }
+.cit-bg-b { opacity: 0; }
+
+/* Image initiale (remplacée au click par JS — on utilise la 1ʳᵉ image de CITADELLE dans data.js) */
+.cit-bg-a { background-image: url('../images/citadelle/entrainement.png'); }
+
+@keyframes citZoom { from{transform:scale(1)} to{transform:scale(1.06)} }
+
+.cit-overlay {
+    position: absolute; inset: 0; z-index: 1;
+    background:
+        linear-gradient(to right,  rgba(8,6,10,.92) 0%, rgba(8,6,10,.55) 35%, rgba(8,6,10,.4) 100%),
+        linear-gradient(to bottom, rgba(8,6,10,.4)  0%, rgba(8,6,10,.6)  100%);
+}
+
+/* ── Layout général ── */
+.cit-content {
+    position: relative; z-index: 2;
+    display: flex; flex-direction: column; height: 100%;
+    padding: calc(var(--nav-h) + 1vh) clamp(1.5rem,4vw,4rem) clamp(1rem,2vh,2rem);
+    gap: clamp(.5rem,1vh,1rem);
+}
+.cit-header             { text-align: center; flex-shrink: 0; }
+.cit-header .orn-rule   { margin: .4rem 0 .5rem; }
+.cit-intro {
+    font-size: clamp(.82rem,1vw,.92rem); color: var(--text);
+    font-style: italic; max-width: 60ch; margin: 0 auto;
+}
+
+/* ── Layout principal : 2 colonnes (boutons | details) ── */
+.cit-layout {
+    display: grid;
+    grid-template-columns: minmax(220px, 280px) 1fr;
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: center;
+    padding: 0 clamp(1rem, 4vw, 4rem);
+    flex: 1; min-height: 0;
+}
+
+/* ── COLONNE GAUCHE : liste de boutons ── */
+.cit-buttons {
+    display: flex; flex-direction: column; gap: .7rem;
+    width: 100%;
+}
+.cit-btn {
+    text-align: left;
+    padding: .9rem 1.2rem;
+    background: rgba(8,6,10,.55);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--border);
+    border-left: 3px solid transparent;
+    color: var(--text);
+    font-family: var(--ff-sub);
+    font-size: clamp(.7rem, .85vw, .82rem);
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: border-color .3s, background .3s, color .3s, padding-left .3s;
+    position: relative;
+}
+.cit-btn:hover {
+    border-color: var(--border-h);
+    background: rgba(201,168,76,.08);
+    color: var(--white);
+    padding-left: 1.5rem;
+}
+.cit-btn.active {
+    border-color: var(--border-h);
+    border-left: 3px solid var(--gold);
+    background: linear-gradient(to right, rgba(201,168,76,.18) 0%, rgba(201,168,76,.04) 100%);
+    color: var(--gold);
+    padding-left: 1.4rem;
+    box-shadow: -4px 0 20px rgba(201,168,76,.15);
+}
+
+/* ── COLONNE DROITE : details ── */
+.cit-details {
+    max-width: 580px;
+    transition: opacity .35s ease, transform .45s var(--eout);
+}
+.cit-details.fading {
+    opacity: 0;
+    transform: translateX(12px);
+}
+.cit-details h3 {
+    font-family: var(--ff-disp);
+    font-size: clamp(1.6rem, 3.2vw, 2.6rem);
+    color: var(--white);
+    line-height: 1.05;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 30px rgba(0,0,0,.7);
+}
+.cit-details .orn-rule {
+    margin: 0 0 1.2rem;
+    max-width: 200px;
+}
+.cit-details p {
+    font-size: clamp(.95rem, 1.2vw, 1.1rem);
+    color: var(--text-bright);
+    line-height: 1.7;
+    font-style: italic;
+}
