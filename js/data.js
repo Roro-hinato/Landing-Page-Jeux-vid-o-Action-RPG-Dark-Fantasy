@@ -49,16 +49,16 @@ const COMPANIONS = [
 const CITADELLE = [
     { name: 'Salle d\'Entraînement',
       img: 'images/citadelle/entrainement.webp',
-      text: 'Des guerriers trempés dans l\'acier et la douleur. Chaque amélioration forge des combattants capables d\'affronter les horreurs qui rôdent au-delà des murs.' },
+      text: 'Améliorer votre personnage en construisant la Zone d\'Entraînement. Entrainer vos compagnons et peut être aurait vous une chance de térasser les Dragons!' },
     { name: 'Atelier d\'Alchimie',
       img: 'images/citadelle/alchimie.webp',
-      text: 'Distillats de venin draconique, élixirs de régénération, poisons qui corrompent l\'âme. L\'alchimie est l\'arme silencieuse qui renverse les batailles impossibles.' },
+      text: 'Construiser l\'Atelier d\'Alchimie pour pouvoir confectionner de puissant élixir magique qui vous seront bien utiles en combat! Potions de soin, poisons mortel, vous avez le choix!' },
     { name: 'Forge Draconique',
       img: 'images/citadelle/forge.webp',
-      text: 'Dans les flammes de l\'essence draconique, le métal ordinaire devient légende. Chaque arme forgée ici porte en elle un fragment de l\'âme d\'un dragon vaincu.' },
+      text: 'Grâce à la Forge Draconique, forger de puissants équipements en écailles de Dragons! Armures, Epées, Arcs... Equiper vous comme vous le souhaiter!' },
     { name: 'Bibliothèque des Anciens',
       img: 'images/citadelle/bibliotheque.webp',
-      text: 'Des parchemins maudits. Des rituels oubliés. Des prophéties que les dieux ont voulu effacer. Chaque page déchiffrée vous rapproche de la vérité — ou de la folie.' }
+      text: 'La Bibliothèque des Anciens regorge de secret! Anciens parchemins magiques, vieux livres antiques! Vous en apprendrez plus sur l\'histoire de Dragonia et du reveil des Dragons!' }
 ];
 
 /* ── §2 GAMEPLAY — 4 systèmes de jeu (carrousel) ── */
@@ -100,23 +100,23 @@ const ZONES = [
       desc: 'Un labyrinthe de cryptes qui s\'étend sous tout le continent. Des armées entières y ont été englouties. Des rois oubliés y règnent encore sur leurs légions d\'ossements animés.' },
     { badge: 'Zone volcanique', name: 'Gouffre de Braise',
       img: 'images/zones/gouffre.webp',
-      desc: 'Là où les dragons primordiaux ont été pétrifiés, la terre saigne encore du feu. Des gardiens en fusion protègent les secrets les plus anciens de Valdrakhar.' },
+      desc: 'Là où les dragons primordiaux ont été pétrifiés, la terre saigne encore du feu. Des gardiens en fusion protègent les secrets les plus anciens de Dragonia.' },
     { badge: 'Grand Nord',       name: 'Toundra Éternelle',
       img: 'images/zones/permafrost.webp',
       desc: 'Un désert de glace où le temps semble figé. Les tribus de chasseurs y survivent avec des esprits anciens. Des ossements de créatures gigantesques affleurent du permafrost.' },
-    { badge: 'Zone finale', name: 'Cité Suspendue',
+    { badge: 'Ciel de cendres', name: 'Cité Suspendue',
       img: 'images/zones/citesuspendue.webp',
-      desc: 'Une cité flottant entre les nuages, tenue par une magie que personne ne comprend plus. Le cœur du mystère de Valdrakhar s\'y trouve — et le dragon le plus ancien y dort.' }
+      desc: 'Une cité flottant entre les nuages, tenue par une magie que personne ne comprend plus. Le cœur du mystère de Dragonia s\'y trouve — et le dragon le plus ancien y dort.' }
 ];
 
 /* ── §6 BONUS — 4 récompenses early access ── */
 const BONUSES = [
     { cat: 'Cosmétique',         name: 'Armure du Brise-Chaîne',
       img: 'images/bonuses/armure.webp',
-      desc: 'Forgée dans les cendres draconiques. Jamais vendue, jamais reproduite après la sortie officielle.' },
-    { cat: 'Accès prioritaire',  name: 'Early Access — 14 jours',
+      desc: 'Forgée à partir d\'écailles de Dragons. Commencer votre aventure avec un équipement de départ unique!.' },
+    { cat: 'Accès prioritaire',  name: 'Early Access',
       img: 'images/bonuses/accesanticipe.webp',
-      desc: 'Jouez 14 jours avant tout le monde. Votre légende s\'écrit avant la leur. Irréversible.',
+      desc: 'Accés anticipé de 2 semaines avant la sortie officielle!',
       featured: true, ribbon: 'EXCLUSIF' },
     { cat: 'Monture',            name: 'Dragon de Cendre',
       img: 'images/bonuses/dragon.webp',
