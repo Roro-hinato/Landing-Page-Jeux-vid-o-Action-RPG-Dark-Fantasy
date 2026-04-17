@@ -128,32 +128,37 @@
     .gp-next        { right: .4rem; }
     .gp-dots        { bottom: 1rem; }
 
-    /* Companions — horizontal scroll */
-    .s-companions { padding: calc(var(--nav-h) + .5rem) 1rem 1rem; }
+    /* Companions — vertical column on mobile */
+    .s-companions { padding: calc(var(--nav-h) + .5rem) 1rem .8rem; }
     .companions-header .section-title { font-size: clamp(1.4rem, 6vw, 2rem); }
-    .companions-header .section-sub   { font-size: .9rem; }
+    .companions-header .section-sub   { font-size: .85rem; margin-bottom: .3rem; }
     .char-showcase {
-        flex-direction: row; overflow-x: auto;
+        flex-direction: column !important;
+        overflow-x: visible; overflow-y: auto;
         -webkit-overflow-scrolling: touch;
-        gap: .8rem !important; padding-bottom: .5rem; height: 0;
+        gap: .5rem !important; padding: 0 .5rem .5rem;
+        height: 0;
     }
-    .char-showcase::-webkit-scrollbar       { height: 3px; }
-    .char-showcase::-webkit-scrollbar-track { background: var(--border); }
-    .char-showcase::-webkit-scrollbar-thumb { background: var(--gold); }
-    .char-card               { flex: 0 0 170px !important; max-width: none; min-width: 170px; min-height: 280px; }
-    .char-card.char-featured { flex: 0 0 195px !important; max-width: none; }
-    .char-base h3 { font-size: .85rem; }
-    .char-class   { font-size: .45rem; }
+    .char-card,
+    .char-card.char-featured {
+        flex: 0 0 auto !important;
+        width: 100% !important; max-width: none;
+        min-width: 0; min-height: 0;
+        height: 120px;
+    }
+    .char-base { padding: .7rem .9rem .5rem; }
+    .char-base h3 { font-size: .9rem; }
+    .char-class   { font-size: .48rem; }
 
-    /* Panel compagnon (au tap) — compact + scrollable si trop long */
-    .char-panel     { padding: .7rem .6rem; gap: .35rem; max-height: 70%; overflow-y: auto; }
-    .char-quote     { font-size: .68rem; line-height: 1.25; padding-left: .5rem; }
-    .char-bar       { grid-template-columns: 44px 1fr 20px; gap: .2rem; }
-    .char-bar > span:first-child { font-size: .38rem; }
-    .bar-val        { font-size: .4rem; }
-    .char-tags span { font-size: .38rem; padding: .1rem .35rem; }
+    /* Panel compagnon (au tap) — adapté à la carte horizontale */
+    .char-panel     { padding: .6rem .8rem; gap: .3rem; max-height: 80%; overflow-y: auto; }
+    .char-quote     { font-size: .72rem; line-height: 1.3; padding-left: .5rem; }
+    .char-bar       { grid-template-columns: 52px 1fr 22px; gap: .3rem; }
+    .char-bar > span:first-child { font-size: .42rem; }
+    .bar-val        { font-size: .42rem; }
+    .char-tags span { font-size: .4rem; padding: .12rem .4rem; }
 
-    /* Citadelle — boutons en colonne, pleine largeur */
+    /* Citadelle — description en haut, boutons en bas */
     .s-citadelle { padding: 0; }
     .cit-content { padding: calc(var(--nav-h) + .5rem) 1rem .8rem; gap: .6rem; }
     .cit-layout {
@@ -162,9 +167,14 @@
         padding: 0;
         align-items: start;
     }
+    .cit-details {
+        order: -1;                    /* description passe AU-DESSUS des boutons */
+        max-width: 100%; padding: 0 .3rem;
+    }
     .cit-buttons {
         flex-direction: column !important;
         gap: .35rem;
+        order: 1;                     /* boutons passent EN BAS */
     }
     .cit-btn {
         width: 100%;
@@ -172,7 +182,6 @@
         font-size: .62rem; letter-spacing: .12em;
     }
     .cit-btn.active { padding-left: 1rem; }
-    .cit-details   { max-width: 100%; padding: 0 .3rem; }
     .cit-details h3 { font-size: clamp(1.2rem, 5.5vw, 1.8rem); margin-bottom: .5rem; }
     .cit-details p  { font-size: .85rem; line-height: 1.5; }
     .cit-header .section-title { font-size: clamp(1.4rem, 6vw, 2rem); }
@@ -238,10 +247,13 @@
     .plat-ico-btn span { font-size: .42rem; }
     .plat-sep       { display: none; }
 
-    /* Footer */
-    .site-footer  { padding: .8rem 1rem; }
-    .footer-inner { flex-direction: column; gap: .5rem; text-align: center; }
-    .footer-links { gap: 1rem; flex-wrap: wrap; justify-content: center; }
+    /* Footer — compact */
+    .site-footer  { padding: .5rem .8rem; }
+    .footer-inner { flex-direction: row; gap: .6rem; text-align: left; align-items: center; flex-wrap: wrap; }
+    .footer-copy  { font-size: .55rem; flex: 1; min-width: 0; }
+    .footer-links { gap: .7rem; flex-wrap: nowrap; }
+    .footer-links button,
+    .footer-links a { font-size: .55rem; letter-spacing: .12em; min-height: 36px; }
 
     /* Modal */
     .modal-box { padding: 2rem 1.5rem; margin: 0 1rem; }
