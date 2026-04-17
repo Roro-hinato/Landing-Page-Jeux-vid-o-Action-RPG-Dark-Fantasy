@@ -126,17 +126,21 @@ const BONUSES = [
       desc: 'Sorti de l\'œuf des Pics de l\'Aube. Petit, mais porteur d\'un destin de flammes et de gloire.' }
 ];
 
-/* ── PLATEFORMES — logos officiels (Simple Icons CDN) + SVG inline pour Xbox/Windows
-       (Microsoft a fait retirer ses marques de Simple Icons en 2024) ── */
+/* ── PLATEFORMES — tous en SVG inline (zéro requête CDN externe) ── */
 const PLATFORMS = [
-    { id: 'btnApple',   label: 'App Store',    logo: 'https://cdn.simpleicons.org/appstore/c8bdb0' },
-    { id: 'btnAndroid', label: 'Google Play',  logo: 'https://cdn.simpleicons.org/googleplay/c8bdb0' },
+    { id: 'btnApple',   label: 'App Store',
+      svg: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>' },
+    { id: 'btnAndroid', label: 'Google Play',
+      svg: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.61.41L15.09 7l-2.92 2.93L3.08 .81C3.2.54 3.38.41 3.61.41zm-.53.66v21.86l9.03-9.03L3.08 4.87v-3.8zM20.58 10.35l-3.55-2.02L13.96 11.4l3.07 3.07 3.55-2.02c.56-.32.56-1.17 0-2.1zM3.08 23.19c.13.27.31.4.53.4L15.09 17l-2.92-2.93L3.08 23.19z"/></svg>' },
     { sep: true },
-    { id: 'btnPS5',     label: 'PS5 / PS4',    logo: 'https://cdn.simpleicons.org/playstation/c8bdb0' },
+    { id: 'btnPS5',     label: 'PS5 / PS4',
+      svg: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.5 3.5v13.7l4.5 1.4V6.2c0-1.3-.4-2.5-2.1-3C10.5 2.8 9.5 3 9.5 3v.5zm8.2 11.4c-1.2.8-3.5 1.3-3.5 1.3v3l5.5-2c.6-.3.8-.6.5-.9-.3-.3-1.3-.8-2.5-.4zm-14.4 2c-.8.5-.6 1.2.6 1.5 1.4.4 2.9.2 4.3-.3l.3-.1v-2.8l-2 .7c-.8.3-2.2.6-3.2 1z"/></svg>' },
     { id: 'btnXbox',    label: 'Xbox',
-      svg: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2.1 14.5l-1.4-1.4 2.1-2.1-2.1-2.1 1.4-1.4 2.1 2.1 2.1-2.1 1.4 1.4-2.1 2.1 2.1 2.1-1.4 1.4-2.1-2.1-2.1 2.1z"/></svg>' },
-    { id: 'btnSteam',   label: 'Steam',        logo: 'https://cdn.simpleicons.org/steam/c8bdb0' },
+      svg: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2.1 14.5l-1.4-1.4 2.1-2.1-2.1-2.1 1.4-1.4 2.1 2.1 2.1-2.1 1.4 1.4-2.1 2.1 2.1 2.1-1.4 1.4-2.1-2.1-2.1 2.1z"/></svg>' },
+    { id: 'btnSteam',   label: 'Steam',
+      svg: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.49l3.32-4.78c-.03 0-.05-.01-.08-.01-1.39 0-2.52-1.13-2.52-2.52s1.13-2.52 2.52-2.52 2.52 1.13 2.52 2.52c0 .49-.14.94-.38 1.33L18.14 12H22c0-5.52-4.48-10-10-10zm3.5 10c-1.38 0-2.5-1.12-2.5-2.5S14.12 7 15.5 7 18 8.12 18 9.5 16.88 12 15.5 12z"/></svg>' },
     { id: 'btnWin',     label: 'Windows',
-      svg: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5L10.5 4.5V11.5H3M11.5 4.5L21 3V11.5H11.5M3 12.5H10.5V19.5L3 18.5M11.5 12.5H21V21L11.5 19.5"/></svg>' },
-    { id: 'btnMac',     label: 'Mac',          logo: 'https://cdn.simpleicons.org/apple/c8bdb0' }
+      svg: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.5L10.5 4.5V11.5H3M11.5 4.5L21 3V11.5H11.5M3 12.5H10.5V19.5L3 18.5M11.5 12.5H21V21L11.5 19.5"/></svg>' },
+    { id: 'btnMac',     label: 'Mac',
+      svg: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>' }
 ];

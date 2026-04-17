@@ -3,23 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Valdrakhar : La Malédiction des Anciens — un action RPG dark fantasy en monde ouvert. Explorez Aetheria, recrutez des compagnons, forgez votre légende.">
+    <meta name="theme-color" content="#08060a">
     <title>VALDRAKHAR — La Malédiction des Anciens | Action RPG Dark Fantasy</title>
 
-    <!-- Performance: preconnect + reduced font weights (only what's used) -->
+    <!-- Performance: preconnect + non-blocking font loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@600;700&family=Cormorant+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@600;700&family=Cormorant+Garamond:ital,wght@0,400;1,400&display=swap" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@600;700&family=Cormorant+Garamond:ital,wght@0,400;1,400&display=swap"></noscript>
 
-    <!-- Styles (loaded in cascade order: base → sections → responsive) -->
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/hero.css">
-    <link rel="stylesheet" href="css/lore.css">
-    <link rel="stylesheet" href="css/gameplay.css">
-    <link rel="stylesheet" href="css/companions.css">
-    <link rel="stylesheet" href="css/citadelle.css">
-    <link rel="stylesheet" href="css/monde.css">
-    <link rel="stylesheet" href="css/signup.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <!-- Single combined stylesheet (eliminates 8 render-blocking requests) -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body id="body">
 
