@@ -10,15 +10,16 @@
     <!-- Performance: preconnect + non-blocking font loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@600;700&family=Cormorant+Garamond:ital,wght@0,400;1,400&display=swap" onload="this.rel='stylesheet'">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@600;700&family=Cormorant+Garamond:ital,wght@0,400;1,400&display=swap" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@600;700&family=Cormorant+Garamond:ital,wght@0,400;1,400&display=swap"></noscript>
 
-    <!-- Single combined stylesheet (eliminates 8 render-blocking requests) -->
+    <!-- Preload LCP image (hero poster) for faster mobile paint -->
+    <link rel="preload" as="image" href="images/hero-bg.webp" type="image/webp" fetchpriority="high">
+
+    <!-- Single combined stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body id="body">
-
-<!-- ══ CURSOR ══ -->
 
 <!-- ══ DISCLAIMER MODAL ══ -->
 <div id="disclaimerModal" class="modal-backdrop hidden" role="dialog" aria-modal="true">
@@ -59,6 +60,7 @@
     <a href="#signup" class="mob-a gold">S'inscrire au Pacte</a>
 </div>
 
+<main>
 <!-- ══════════════════════════════════════
      §0  HERO
 ══════════════════════════════════════ -->
@@ -68,7 +70,7 @@
          L'image poster (hero-bg.webp) sert de fallback si la vidéo ne charge pas
          ou si l'autoplay est bloqué (mobile, économie d'énergie). -->
     <video class="hero-video" autoplay muted loop playsinline
-           poster="images/hero-bg.webp" preload="metadata">
+           poster="images/hero-bg.webp" preload="none">
         <source src="videos/hero.webm" type="video/webm">
         <source src="videos/hero.mp4"  type="video/mp4">
     </video>
@@ -263,6 +265,7 @@
         </div>
     </footer>
 </section>
+</main>
 
 <!-- ══ INFO MODALS ══ -->
 <div id="modalPrivacy" class="modal-backdrop info-modal hidden" role="dialog" aria-modal="true">
