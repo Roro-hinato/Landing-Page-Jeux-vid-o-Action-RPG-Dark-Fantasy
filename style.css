@@ -213,8 +213,7 @@ blockquote{position:relative;font-style:italic;font-size:clamp(1rem, 1.3vw, 1.18
 @keyframes citZoom{from{transform:scale(1)}
 to{transform:scale(1.06)}
 }
-.cit-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(to right,  rgba(8,6,10,.92) 0%, rgba(8,6,10,.55) 35%, rgba(8,6,10,.4) 100%),
-linear-gradient(to bottom, rgba(8,6,10,.4)  0%, rgba(8,6,10,.6)  100%)}
+.cit-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(to bottom, rgba(8,6,10,.75) 0%, rgba(8,6,10,.3) 40%, rgba(8,6,10,.85) 100%),}
 .cit-content{position:relative;z-index:2;display:flex;flex-direction:column;height:100%;padding:calc(var(--nav-h) + 1vh) clamp(1.5rem,4vw,4rem) clamp(1rem,2vh,2rem);gap:clamp(.5rem,1vh,1rem)}
 .cit-header{text-align:center;flex-shrink:0}
 .cit-header .orn-rule{margin:.4rem auto .5rem}
