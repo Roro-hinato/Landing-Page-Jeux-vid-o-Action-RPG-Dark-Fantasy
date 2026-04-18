@@ -39,7 +39,7 @@
     gap: clamp(.6rem,1.2vh,1.2rem);
 }
 
-.lore-content .orn-rule { max-width: 260px; margin: .6rem auto 1.2rem; }
+.lore-content .orn-rule { margin: .6rem auto 1rem; }
 
 .lore-content .section-title {
     text-shadow: 0 2px 30px rgba(0,0,0,.9), 0 0 60px rgba(0,0,0,.5);

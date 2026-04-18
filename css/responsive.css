@@ -110,8 +110,6 @@
     blockquote       { font-size: .9rem; padding: .6rem 1rem; }
 
     /* ── Ornament adaptatif ── */
-    .orn-rule        { margin: .5rem 0 .7rem; gap: .5rem; }
-    .orn-rule::before, .orn-rule::after { max-width: 60px; }
 
     /* ── Gameplay — marge au-dessus du titre + en dessous de la desc ── */
     .s-gameplay { padding: 0 !important; }

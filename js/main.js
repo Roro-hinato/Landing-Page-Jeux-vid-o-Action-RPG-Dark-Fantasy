@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setupGameplay();
         setupZones();
         setupCitadelleButtons();
+        setupOrnaments();
     });
     defer(() => {
         setupModal();

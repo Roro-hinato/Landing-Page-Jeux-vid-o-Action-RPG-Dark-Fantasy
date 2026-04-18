@@ -61,13 +61,7 @@
 .logo-white { color: var(--white); text-shadow: 0 0 60px rgba(255,255,255,.1); }
 /* .logo-gold styling moved to base.css (lingot doré effect) */
 
-.hero-ornament { display: flex; align-items: center; gap: .8rem; margin: .5rem 0; }
-.orn-line {
-    flex: 1; max-width: 120px; height: 1px;
-    background: linear-gradient(90deg, transparent, var(--gold));
-}
-.orn-line:last-child { background: linear-gradient(270deg, transparent, var(--gold)); }
-.orn-diamond { color: var(--gold); font-size: .7rem; }
+/* Hero ornament uses the unified .orn-rule from base.css */
 
 .hero-subtitle {
     font-family: var(--ff-sub); font-size: clamp(.8rem,1.6vw,1.1rem);

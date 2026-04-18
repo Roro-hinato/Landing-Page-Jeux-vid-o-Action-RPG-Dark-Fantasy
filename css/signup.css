@@ -222,9 +222,9 @@
 /* Moins d'espace entre titre et description */
 .signup-content .eyebrow       { margin: 0 0 .2rem; }
 .signup-content .section-title { margin-bottom: 0; }
-.signup-content .orn-rule.center {
-    margin: .15rem auto .25rem;
-    max-width: 200px;
+/* centrage via margin:auto dans base */
+.signup-content .orn-rule {
+    margin: .2rem auto .3rem;
 }
 
 /* Plus d'espace entre les cartes bonus et les plateformes */

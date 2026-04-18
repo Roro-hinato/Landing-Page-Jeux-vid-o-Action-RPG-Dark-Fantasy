@@ -45,7 +45,7 @@
     gap: clamp(.5rem,1vh,1rem);
 }
 .cit-header             { text-align: center; flex-shrink: 0; }
-.cit-header .orn-rule   { margin: .4rem 0 .5rem; }
+.cit-header .orn-rule { margin: .4rem auto .5rem; }
 .cit-intro {
     font-size: clamp(.82rem,1vw,.92rem); color: var(--text);
     font-style: italic; max-width: 60ch; margin: 0 auto;
@@ -113,10 +113,6 @@
     line-height: 1.05;
     margin-bottom: 1rem;
     text-shadow: 0 2px 30px rgba(0,0,0,.7);
-}
-.cit-details .orn-rule {
-    margin: 0 0 1.2rem;
-    max-width: 200px;
 }
 .cit-details p {
     font-size: clamp(.95rem, 1.2vw, 1.1rem);

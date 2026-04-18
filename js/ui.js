@@ -150,3 +150,32 @@ const setupMobileTouch = () => {
         }
     }, { passive: true });
 };
+
+/* ── ORNAMENT WIDTH — match the title above each .orn-rule ── */
+const setupOrnaments = () => {
+    const sync = () => {
+        document.querySelectorAll('.orn-rule').forEach(orn => {
+            const title = orn.previousElementSibling;
+            if (!title) return;
+            // Use scrollWidth for inline elements, offsetWidth for block
+            const w = title.scrollWidth || title.offsetWidth;
+            if (w > 0) orn.style.setProperty('--orn-w', w + 'px');
+        });
+    };
+
+    // Run after fonts are loaded (titles may reflow)
+    if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(sync);
+    } else {
+        sync();
+    }
+
+    // Re-sync on resize
+    window.addEventListener('resize', sync, { passive: true });
+
+    // Observe #citDetails for dynamic content changes (citadelle button clicks)
+    const citDetails = document.getElementById('citDetails');
+    if (citDetails) {
+        new MutationObserver(sync).observe(citDetails, { childList: true, subtree: true });
+    }
+};

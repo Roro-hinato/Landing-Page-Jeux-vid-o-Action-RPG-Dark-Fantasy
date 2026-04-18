@@ -117,12 +117,18 @@ section {
 }
 
 /* ── ORNAMENTAL RULE ── */
-.orn-rule { display: flex; align-items: center; gap: .8rem; margin: 1rem 0 1.5rem; }
-.orn-rule::before, .orn-rule::after {
-    content: ''; flex: 1; height: 1px;
-    background: linear-gradient(90deg, transparent, var(--gold));
+/* ── ORNAMENT SYSTEM ── */
+.orn-rule {
+    display: block;
+    width: var(--orn-w, clamp(120px, 30vw, 200px));
+    height: 1px;
+    margin: 1rem auto;
+    background: linear-gradient(90deg,
+        transparent 0%, rgba(201,168,76,.4) 25%,
+        var(--gold) 50%,
+        rgba(201,168,76,.4) 75%, transparent 100%);
+    position: relative;
 }
-.orn-rule::after { background: linear-gradient(270deg, transparent, var(--gold)); }
 
 /* ── FLOATING SECTION NAV — ↑ ↓ ⇞ en bas à droite ── */
 .section-nav {
