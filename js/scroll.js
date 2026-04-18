@@ -59,23 +59,29 @@ const setupSectionScroll = () => {
         setTimeout(() => { locked = false; }, LOCK_MS);
     };
 
-    // Wheel
-    window.addEventListener('wheel', e => {
-        if (insideHScroll(e.target)) return;
-        e.preventDefault();
-        if      (e.deltaY >  30) goTo(current + 1);
-        else if (e.deltaY < -30) goTo(current - 1);
-    }, { passive: false });
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
 
-    // Touch
-    let ty = 0;
-    window.addEventListener('touchstart', e => { ty = e.touches[0].clientY; }, { passive: true });
-    window.addEventListener('touchend',   e => {
-        if (insideHScroll(e.target)) return;
-        const dy = ty - e.changedTouches[0].clientY;
-        if      (dy >  55) goTo(current + 1);
-        else if (dy < -55) goTo(current - 1);
-    }, { passive: true });
+    // Wheel (desktop only — mobile scrolls freely)
+    if (!isMobile) {
+        window.addEventListener('wheel', e => {
+            if (insideHScroll(e.target)) return;
+            e.preventDefault();
+            if      (e.deltaY >  30) goTo(current + 1);
+            else if (e.deltaY < -30) goTo(current - 1);
+        }, { passive: false });
+    }
+
+    // Touch section-snap (desktop only)
+    if (!isMobile) {
+        let ty = 0;
+        window.addEventListener('touchstart', e => { ty = e.touches[0].clientY; }, { passive: true });
+        window.addEventListener('touchend',   e => {
+            if (insideHScroll(e.target)) return;
+            const dy = ty - e.changedTouches[0].clientY;
+            if      (dy >  55) goTo(current + 1);
+            else if (dy < -55) goTo(current - 1);
+        }, { passive: true });
+    }
 
     // Keyboard
     window.addEventListener('keydown', e => {
